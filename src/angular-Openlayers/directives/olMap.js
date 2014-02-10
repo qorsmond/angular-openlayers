@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('angular-Openlayers')
+angular.module('ngOpenlayers')
     .directive('olMap', function (olOutput, $timeout) {
         return {
             template: '<div class="map"><div ng-transclude></div></div>',
-            restrict: 'E',
+            restrict: 'EA',
             replace: true,
             transclude: true,
             controller: function($scope) {

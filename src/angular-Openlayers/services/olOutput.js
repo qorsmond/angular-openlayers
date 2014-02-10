@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-Openlayers')
+angular.module('ngOpenlayers')
     .factory('olOutput', function($rootScope) {
         // Service logic
         var selectedFeatures = [];

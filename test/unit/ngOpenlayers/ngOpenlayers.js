@@ -4,21 +4,31 @@
 // jasmine.getFixtures().fixturesPath = 'base/';
 
 describe('ngOpenlayers', function() {
+    
+    var elm, scope;
 
-    var module;
-    var dependencies;
-    dependencies = [];
+    // load the module
+    beforeEach(module('ngOpenlayers'));
 
-    var hasModule = function(module) {
-        return dependencies.indexOf(module) >= 0;
-    };
+    // load the templates
+    beforeEach(inject(function ($rootScope, $compile) {
+        elm = angular.element(
+          '<div>' +
+            '<ol-map>' +
+              '<ol-layer ng-repeat="layer in mapLayers" lyr-options="layer">' +
+              '</ol-layer>' +
+            '</ol-map>' +
+          '</div>');
 
-    beforeEach(function() {
+        scope = $rootScope;
+        $compile(elm)(scope);
+        scope.$digest();
+    }));
 
-        // Get module
-        module = angular.module('ngOpenlayers');
-        dependencies = module.requires;
-    });
+    //it('should create a map', inject(function ($compile, $rootScope) {
+    //    var map = elm.find('');
+    //}));
+
 
     it('should load config module', function() {
         //expect(hasModule('ngOpenlayers.config')).toBeTruthy();

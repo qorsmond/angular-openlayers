@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('angular-Openlayers')
+angular.module('ngOpenlayers')
     .directive('olLayer', function() {
         return {
-            restrict: 'E',
+            restrict: 'EA',
             require: '^olMap',
             scope: { lyrOptions: '=' },
             link: function(scope, element, attrs, olMapCtrl) {

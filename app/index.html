@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular-Openlayers Demo</title>
+    <meta name="viewport" content="width=device-width">
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.7/ng-grid.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link href="demo.css" rel="stylesheet" />
+</head>
+    <body ng-app="ngOpenlayersDemo">
+        
+        <div class="content" ng-controller="demoCtrl">
+            
+            <div class="panelLayer">
+                <div class="panelMargin panel panel-default">
+                    <div class="panel-heading">Layers</div>
+                    <div class="panel-body">
+                        <div class="layersgridStyle" ng-grid="layerGridOptions"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="panelMap">
+                <div class="panelMargin panel-fill panel panel-default">
+                    <div class="panel-heading">Map</div>
+                    <div class="panel-body-fill panel-body">
+                        <ol-map add-blankbase="Blankbase">
+                            <ol-layer ng-repeat="layer in mapLayers" lyr-options="layer">
+                            </ol-layer>
+                        </ol-map>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="panelOutput">
+                <div class="panelMargin panel panel-default">
+                    <div class="panel-heading">Output</div>
+                    <div class="panel-body">
+                        Test3
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    
+        <script src="http://openlayers.org/api/OpenLayers.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="components/angular/angular.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.7/ng-grid.min.js"></script>
+        <script src="components/angular-Openlayers.js"></script>
+        <script src="demo.js"></script>
+
+    </body>
+</html>

@@ -1,4 +1,4 @@
 //GNU GENERAL PUBLIC LICENSE Version 3
 'use strict';
 
-angular.module('angular-Openlayers', []);
+angular.module('ngOpenlayers', []);

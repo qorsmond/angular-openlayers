@@ -1,8 +1,8 @@
 'use strict';
-angular.module('angular-Openlayers', []);
-angular.module('angular-Openlayers').directive('olLayer', function () {
+angular.module('ngOpenlayers', []);
+angular.module('ngOpenlayers').directive('olLayer', function () {
   return {
-    restrict: 'E',
+    restrict: 'EA',
     require: '^olMap',
     scope: { lyrOptions: '=' },
     link: function (scope, element, attrs, olMapCtrl) {
@@ -100,13 +100,13 @@ angular.module('angular-Openlayers').directive('olLayer', function () {
     }
   };
 });
-angular.module('angular-Openlayers').directive('olMap', [
+angular.module('ngOpenlayers').directive('olMap', [
   'olOutput',
   '$timeout',
   function (olOutput, $timeout) {
     return {
       template: '<div class="map"><div ng-transclude></div></div>',
-      restrict: 'E',
+      restrict: 'EA',
       replace: true,
       transclude: true,
       controller: [
@@ -490,7 +490,7 @@ angular.module('angular-Openlayers').directive('olMap', [
     };
   }
 ]);
-angular.module('angular-Openlayers').factory('olOutput', [
+angular.module('ngOpenlayers').factory('olOutput', [
   '$rootScope',
   function ($rootScope) {
     var selectedFeatures = [];

@@ -23,60 +23,66 @@
             </div>
     
             <div class="panelMap">
-                <div class="panelMargin panel-fill panel panel-default">
+                <div class="panel-fill-margin panel-fill panel panel-default">
                     <div class="panel-heading">Map</div>
-                    <div class="panel-body-fill panel-body">
-                        <div class="panel-toolbar" >
-                            <div class="btn-group">
+                    <div class="panel-body-stretch panel-body">
+                        
+                        <div class="panel-body-fill">
 
-                                <button ng-click="panMap()" type="button" class="btn btn-default" data-toggle="tooltip" title="Move map"><span class="glyphicon glyphicon-move"></span></button>
-                                <button ng-click="zoombox()" type="button" class="btn btn-default" data-toggle="tooltip" title="Zoom box"><span class="glyphicon glyphicon-zoom-in"></span></button>
-                                <button ng-click="selectFeature()" type="button" class="btn btn-default" data-toggle="tooltip" title="Select feature"><span class="glyphicon glyphicon-hand-up"></span></button>
-                                <button ng-click="identify()" type="button" class="btn btn-default " data-toggle="tooltip" title="Identify" ><span class="glyphicon glyphicon-comment"></span></button>
-                                <button ng-click="zoomToActiveExtend()" type="button" class="btn btn-default" data-toggle="tooltip" title="Full extend"><span class="glyphicon glyphicon-globe"></span></button>
+                            <div class="panel-toolbar" >
+                                <div class="btn-group">
+
+                                    <button ng-click="panMap()" type="button" class="btn btn-default" data-toggle="tooltip" title="Move map"><span class="glyphicon glyphicon-move"></span></button>
+                                    <button ng-click="zoombox()" type="button" class="btn btn-default" data-toggle="tooltip" title="Zoom box"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                                    <button ng-click="selectFeature()" type="button" class="btn btn-default" data-toggle="tooltip" title="Select feature"><span class="glyphicon glyphicon-hand-up"></span></button>
+                                    <button ng-click="identify()" type="button" class="btn btn-default " data-toggle="tooltip" title="Identify" ><span class="glyphicon glyphicon-comment"></span></button>
+                                    <button ng-click="zoomToActiveExtend()" type="button" class="btn btn-default" data-toggle="tooltip" title="Full extend"><span class="glyphicon glyphicon-globe"></span></button>
         
 
-                                <div class="btn-group" data-toggle="tooltip" title="Labeling">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-                                        <span class="glyphicon glyphicon-tags"></span> &nbsp; <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li ng-repeat="attr in selectedLayers[0].lyrLabels">
-                                            <a href="" ng-click="labeling(attr,1)">{{attr}}</a>
-                                        </li>
+                                    <div class="btn-group" data-toggle="tooltip" title="Labeling">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                                            <span class="glyphicon glyphicon-tags"></span> &nbsp; <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li ng-repeat="attr in selectedLayers[0].lyrLabels">
+                                                <a href="" ng-click="labeling(attr,1)">{{attr}}</a>
+                                            </li>
                 
-                                        <li class="divider"></li>
-                                        <li><a href="" ng-click="labeling()">No labels</a></li>
-                                    </ul>
-                                </div>
+                                            <li class="divider"></li>
+                                            <li><a href="" ng-click="labeling()">No labels</a></li>
+                                        </ul>
+                                    </div>
                             
-                                <div class="btn-group" data-toggle="tooltip" title="Background">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-                                        <span class="glyphicon glyphicon-road"></span> &nbsp; <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="" ng-click="setBackground('OpenStreet')">OSM Roads</a></li>
-                                        <li><a href="" ng-click="setBackground('GoogleStreet')">Google Roads</a></li>
-                                        <li><a href="" ng-click="setBackground('GoogleHybrid')">Terain</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="" ng-click="setBackground('Clear')">No background</a></li>
-                                    </ul>
+                                    <div class="btn-group" data-toggle="tooltip" title="Background">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                                            <span class="glyphicon glyphicon-road"></span> &nbsp; <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="" ng-click="setBackground('OpenStreet')">OSM Roads</a></li>
+                                            <li><a href="" ng-click="setBackground('GoogleStreet')">Google Roads</a></li>
+                                            <li><a href="" ng-click="setBackground('GoogleHybrid')">Terain</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="" ng-click="setBackground('Clear')">No background</a></li>
+                                        </ul>
+                                    </div>
+                
+                                    <button ng-click="printMap()" type="button" class="btn btn-default" data-toggle="tooltip" title="Print"><span class="glyphicon glyphicon-print"></span></button>
+                
                                 </div>
-                
-                                <button ng-click="printMap()" type="button" class="btn btn-default" data-toggle="tooltip" title="Print"><span class="glyphicon glyphicon-print"></span></button>
-                
                             </div>
-                        </div>
 
-                        <ol-map>
-                            <ol-layer ng-repeat="layer in mapLayers" lyr-options="layer">
-                            </ol-layer>
-                        </ol-map>
+                            <ol-map>
+                                <ol-layer ng-repeat="layer in mapLayers" lyr-options="layer">
+                                </ol-layer>
+                            </ol-map>
+
+                        </div>
 
                         
                     </div>
                 </div>
             </div>
+
       
             <div class="panelOutput">
                 <div class="panelMargin panel panel-default">

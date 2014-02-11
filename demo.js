@@ -1,6 +1,6 @@
 ﻿
 angular.module('ngOpenlayersDemo', ['ngOpenlayers', 'ngGrid'])
-    .controller('demoCtrl', function($scope, $sce) {
+    .controller('demoCtrl', function($scope, $sce,$timeout, olOutput) {
 
         var pointData =
         [
@@ -11,9 +11,9 @@ angular.module('ngOpenlayersDemo', ['ngOpenlayers', 'ngGrid'])
 
         var wktData =
         [
-            { UnqId: 1, Name: 'SA', SomeTestAttr: 'Test123', WKT: 'POLYGON((15.260009765625 -28.125, 30.377197265625 -21.357421875, 35.386962890625 -30.234375, 22.379150390625 -36.03515625, 17.105712890625 -35.68359375, 17.105712890625 -35.15625, 15.260009765625 -28.125))' },
-            { UnqId: 2, Name: 'Angola', SomeTestAttr: 'Test555', WKT: 'POLYGON((9.9865722656252 -5.537109375, 24.752197265625 -6.240234375, 23.521728515625 -18.369140625, 10.689697265625 -17.666015625, 9.9865722656252 -5.537109375))' },
-            { UnqId: 3, Name: 'Madagascar', SomeTestAttr: 'Test555', WKT: 'POLYGON((41.802978515625 -24.873046875, 47.427978515625 -26.279296875, 50.767822265625 -12.744140625, 47.779541015625 -10.986328125, 43.736572265625 -14.853515625, 41.802978515625 -24.873046875))' }
+            { UnqId: 1, Name: 'South Africa', TestAttr: 'Test123', WKT: 'POLYGON((15.260009765625 -28.125, 30.377197265625 -21.357421875, 35.386962890625 -30.234375, 22.379150390625 -36.03515625, 17.105712890625 -35.68359375, 17.105712890625 -35.15625, 15.260009765625 -28.125))' },
+            { UnqId: 2, Name: 'Angola', TestAttr: 'Test456', WKT: 'POLYGON((9.9865722656252 -5.537109375, 24.752197265625 -6.240234375, 23.521728515625 -18.369140625, 10.689697265625 -17.666015625, 9.9865722656252 -5.537109375))' },
+            { UnqId: 3, Name: 'Madagascar', TestAttr: 'Test555', WKT: 'POLYGON((41.802978515625 -24.873046875, 47.427978515625 -26.279296875, 50.767822265625 -12.744140625, 47.779541015625 -10.986328125, 43.736572265625 -14.853515625, 41.802978515625 -24.873046875))' }
         ];
 
         var geoJsonData = { "type": "Feature", "properties": {}, "geometry": { "type": "Polygon", "coordinates": [[[15.875244140625, -20.6982421875], [16.578369140625, -19.9072265625], [17.457275390625, -20.56640625], [18.116455078125, -21.0498046875], [17.369384765625, -21.2255859375], [16.842041015625, -21.357421875], [15.875244140625, -20.6982421875]]] }, "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } } };
@@ -26,16 +26,18 @@ angular.module('ngOpenlayersDemo', ['ngOpenlayers', 'ngGrid'])
                 lyrActive: true, //Is this layer active? Only one layer can be active at a time.
                 lyrVisable: true, //Is the layer visible?
                 lyrOrder: 1, //What is the order of the layer. Note that the highest order will be on top
+                lyrAttr: ['UnqId', 'Name', 'TestAttr'], //Specify the attributes that we want to use
+                lyrLabels: ['Name', 'TestAttr'], //Specify the attributes that we want to use as labels
                 lyrStyle: {
-                    deflt: {
-//The default style for the features
+                    deflt: //The default style for the features
+                    {
                         fillColor: '#94eb90',
                         fillOpacity: 0.5,
                         strokeColor: '#166558',
                         strokeWidth: 1
                     },
-                    select: {
-//The style that will be used when features is selected
+                    select: //The style that will be used when features is selected
+                    {
                         fillColor: '#0bfbf9',
                         strokeColor: '#000'
                     }
@@ -78,6 +80,17 @@ angular.module('ngOpenlayersDemo', ['ngOpenlayers', 'ngGrid'])
             }
         ];
 
+        //Set the layer active
+        //Use the timeout to wait for the map layers to populate especially when it comes from a remote source
+        $timeout(function () {
+            angular.forEach($scope.mapLayers, function (data, index) {
+                if (data.lyrActive) {
+                    $scope.layerGridOptions.selectItem(index, true);
+                }
+            });
+        }, 100);
+
+
 
         $scope.selectedLayers = [];
         $scope.layerGridOptions = {
@@ -117,5 +130,9 @@ angular.module('ngOpenlayersDemo', ['ngOpenlayers', 'ngGrid'])
             }
         };
 
+        $scope.selectedFieldsOnMap = olOutput.selectedFeatures;
+        $scope.outputGridOptions = {
+            data: 'selectedFieldsOnMap'
+        };
 
     });

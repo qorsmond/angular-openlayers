@@ -1,20 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>Angular-Openlayers Demo</title>
-    <meta name="viewport" content="width=device-width">
+    <head>
+        <title>Angular-Openlayers Demo</title>
+        <meta name="viewport" content="width=device-width">
     
-    <link href="//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.7/ng-grid.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link href="demo.css" rel="stylesheet" />
-</head>
-    <body ng-app="ngOpenlayersDemo">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.7/ng-grid.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+        <link href="demo.css" rel="stylesheet" />
+    </head>
+    <body ng-app="ngOpenlayersDemo" >
         
         <div class="content" ng-controller="demoCtrl">
             
             <div class="panelLayer">
                 <div class="panelMargin panel panel-default">
-                    <div class="panel-heading">Layers</div>
+                    <div class="panel-heading">Layers <a href="layers.html">Documentation</a> 
+                    </div>
                     <div class="panel-body">
                         <div class="layersgridStyle" ng-grid="layerGridOptions"></div>
                     </div>
@@ -25,10 +26,54 @@
                 <div class="panelMargin panel-fill panel panel-default">
                     <div class="panel-heading">Map</div>
                     <div class="panel-body-fill panel-body">
-                        <ol-map add-blankbase="Blankbase">
+                        <div class="panel-toolbar" >
+                            <div class="btn-group">
+
+                                <button ng-click="panMap()" type="button" class="btn btn-default" data-toggle="tooltip" title="Move map"><span class="glyphicon glyphicon-move"></span></button>
+                                <button ng-click="zoombox()" type="button" class="btn btn-default" data-toggle="tooltip" title="Zoom box"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                                <button ng-click="selectFeature()" type="button" class="btn btn-default" data-toggle="tooltip" title="Select feature"><span class="glyphicon glyphicon-hand-up"></span></button>
+                                <button ng-click="identify()" type="button" class="btn btn-default " data-toggle="tooltip" title="Identify" ><span class="glyphicon glyphicon-comment"></span></button>
+                                <button ng-click="zoomToActiveExtend()" type="button" class="btn btn-default" data-toggle="tooltip" title="Full extend"><span class="glyphicon glyphicon-globe"></span></button>
+        
+
+                                <div class="btn-group" data-toggle="tooltip" title="Labeling">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                                        <span class="glyphicon glyphicon-tags"></span> &nbsp; <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li ng-repeat="attr in selectedLayers[0].lyrLabels">
+                                            <a href="" ng-click="labeling(attr,1)">{{attr}}</a>
+                                        </li>
+                
+                                        <li class="divider"></li>
+                                        <li><a href="" ng-click="labeling()">No labels</a></li>
+                                    </ul>
+                                </div>
+                            
+                                <div class="btn-group" data-toggle="tooltip" title="Background">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                                        <span class="glyphicon glyphicon-road"></span> &nbsp; <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="" ng-click="setBackground('OpenStreet')">OSM Roads</a></li>
+                                        <li><a href="" ng-click="setBackground('GoogleStreet')">Google Roads</a></li>
+                                        <li><a href="" ng-click="setBackground('GoogleHybrid')">Terain</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="" ng-click="setBackground('Clear')">No background</a></li>
+                                    </ul>
+                                </div>
+                
+                                <button ng-click="printMap()" type="button" class="btn btn-default" data-toggle="tooltip" title="Print"><span class="glyphicon glyphicon-print"></span></button>
+                
+                            </div>
+                        </div>
+
+                        <ol-map>
                             <ol-layer ng-repeat="layer in mapLayers" lyr-options="layer">
                             </ol-layer>
                         </ol-map>
+
+                        
                     </div>
                 </div>
             </div>
@@ -37,20 +82,22 @@
                 <div class="panelMargin panel panel-default">
                     <div class="panel-heading">Output</div>
                     <div class="panel-body">
-                        Test3
+                        <div class="outputGridStyle" ng-grid="outputGridOptions"></div>
                     </div>
                 </div>
             </div>
         </div>
         
-        
     
         <script src="http://openlayers.org/api/OpenLayers.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="components/angular/angular.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.7/ng-grid.min.js"></script>
         <script src="components/angular-Openlayers.js"></script>
         <script src="demo.js"></script>
+        
+        <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
 
     </body>
 </html>

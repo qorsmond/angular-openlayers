@@ -1,12 +1,13 @@
 ﻿html, body {
     height: 100%;
-    width: 100%;
-    background-color: darkgray;
+    /*width: 100%;*/
 }
 .content {
     height: 100%;
     width: 100%;
     display: table;
+    table-layout: fixed;
+    background-color: darkgray;
 }
 
 .panelLayer {
@@ -33,20 +34,31 @@
 .panel-body-fill {
     height: 100%;
     padding: 0;
-    padding-bottom: 11px;
+    padding-bottom: 56px;
 }
 
 .panelMargin {
     margin: 15px;
 }
 
+.panel-toolbar {
+    background-color: #efefef;
+    border-bottom: 0;
+    padding: 5px 15px;
+    line-height: 1.428571429;
+    display: block;
+    border-bottom:  1px solid #dcdcdc
+}
+
 .map {
     height: 100%;
-    width: 100%;
 }
 
 .layersgridStyle {
     height: 91px; /*30px per row*/
+}
+.outputGridStyle{
+    height: 151px; 
 }
 
 .lyrVisClass {

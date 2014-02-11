@@ -1,0 +1,56 @@
+﻿html, body {
+    height: 100%;
+    width: 100%;
+    background-color: darkgray;
+}
+.content {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.panelLayer {
+    display: table-row;
+}
+
+.panelMap {
+    height: 100%;
+    display: table-row;
+}
+
+.panelOutput {
+    display: table-row;
+}
+
+.panel-body {
+    padding: 0;
+}
+
+.panel-fill {
+    height: 100%;
+    padding-bottom: 30px;
+}
+.panel-body-fill {
+    height: 100%;
+    padding: 0;
+    padding-bottom: 11px;
+}
+
+.panelMargin {
+    margin: 15px;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+
+.layersgridStyle {
+    height: 91px; /*30px per row*/
+}
+
+.lyrVisClass {
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+}

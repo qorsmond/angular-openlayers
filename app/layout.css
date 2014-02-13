@@ -1,0 +1,128 @@
+﻿html, body {
+    height: 100%;
+}
+.content {
+    height: 100%;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    background-color: lightgrey;
+}
+
+.panelA {
+    display: table-row;
+}
+
+.panelB {
+    height: 100%;
+    display: table-row;
+}
+
+.panelC {
+    display: table-row;
+}
+
+.panel-margin {
+    margin: 15px;
+}
+
+.panel-fill-margin {
+    margin-left: 15px;
+    margin-right: 15px; 
+}
+
+.panel-body-stretch {
+    height: 100%;
+    padding: 0;
+}
+
+.panel-fill {
+    height: 100%;
+    min-height: 300px;
+}
+
+.panel-body-fill {
+    height: 100%; 
+    padding-bottom: 82px;
+}
+
+.panel-toolbar {
+    background-color: #efefef;
+    border-bottom: 0;
+    padding: 3px 15px;
+    line-height: 1.428571429;
+    display: block;
+    border-bottom:  1px solid #dcdcdc
+}
+
+.panel-workspace {
+    height: 100%;
+    background-color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.panel {
+    border-radius: 4px 4px 0 0;
+}
+
+.panel-body {
+    padding: 0;
+}
+
+
+
+*/
+
+
+
+
+
+/*.layersgridStyle {
+    height: 92px; 
+}
+.outputGridStyle{
+    height: 151px; 
+}
+
+.lyrVisClass {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+}*/
+
+
+/*.panel-body-table {
+    height: 100%;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.panel-body-row {
+    display: table-row;
+}
+
+.panel-body-row-stretch {
+    height: 100%;
+    display: table-row;
+    background-color: black;
+}*/

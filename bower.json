@@ -1,7 +1,7 @@
 {
     "name": "angular-Openlayers",
-    "version": "0.0.1",
-	"main": ["dist/angular-Openlayers", "dist/angular-Openlayers.min"],
+    "version": "0.0.2",
+	"main": ["dist/angular-Openlayers.js", "dist/angular-Openlayers.min.js"],
 	"ignore": [
         "src",
         "app",
@@ -9,6 +9,7 @@
         ".editorconfig",
         ".gitignore",
         "karma-unit.conf.js",
+		"karma.conf.js",
         ".jshintrc",
         "bower.json",
         "Gruntfile.js",
@@ -16,11 +17,11 @@
         "README.md"
     ],
     "dependencies": {
-        "angular": "~1.2.13"
+        "angular": "<= 1.2.0"
     },
     "devDependencies": {
-        "angular-mocks": "~1.2.13",
-        "angular-scenario": "~1.2.13"
+        "angular-mocks": "~1.2.0",
+        "angular-scenario": "~1.2.0"
     }
 }
 

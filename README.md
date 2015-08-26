@@ -3,7 +3,7 @@ angular-Openlayers
 
 Openlayers AngularJS Module
 
-More to come soon!
+Build to work with openlayers 2 http://openlayers.org/two/
 
 ### Getting Started
 To install the module:
